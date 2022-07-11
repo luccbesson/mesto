@@ -20,3 +20,6 @@
 @import url(../blocks/element-description/element-description.css);
 @import url(../blocks/element-description/__title/element__title.css);
 @import url(../blocks/element-description/__like/element__like.css);
+/*FOOTER*/
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__copyright/footer__copyright.css);
