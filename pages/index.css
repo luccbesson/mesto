@@ -5,3 +5,11 @@
 /*HEADER*/
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__line/header__line.css);
+/*PROFILE*/
+@import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__photo/profile__photo.css);
+@import url(../blocks/profile-info/profile-info.css);
+@import url(../blocks/profile-info/__name/profile-info__name.css);
+@import url(../blocks/profile-info/__description/profile-info__description.css);
+@import url(../blocks/profile-info/__edit-button/profile-info__edit-button.css);
+@import url(../blocks/profile/__add-button/profile__add-button.css);

@@ -1,0 +1,12 @@
+.profile__add-button {
+  max-width: 150x;
+  margin-left: auto;
+  align-self: center;
+}
+
+/*@media (max-width: 767px) {
+  .header__logo {
+    width: 142px;
+    height: 42px;
+  }
+}*/

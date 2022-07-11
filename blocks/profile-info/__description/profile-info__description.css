@@ -1,0 +1,18 @@
+.profile-info__description {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FFFFFF;
+  margin: 0;
+  grid-area: description;
+}
+
+/*@media (max-width: 767px) {
+  .header {
+    max-width: calc(1280px - (16px * 2));
+    min-width: calc(100% - (16px * 2));
+    margin: 16px 16px 48px 16px;
+  }
+}*/

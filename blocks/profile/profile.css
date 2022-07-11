@@ -1,0 +1,17 @@
+.profile {
+  display: flex;
+  /*flex-direction: column;
+  justify-content: space-between;*/
+  max-width: calc(100% - (200px * 2));
+  /*min-height: 74px;*/
+  margin: 0 auto 50px auto;
+  align-items: flex-start;
+}
+
+/*@media (max-width: 767px) {
+  .header {
+    max-width: calc(1280px - (16px * 2));
+    min-width: calc(100% - (16px * 2));
+    margin: 16px 16px 48px 16px;
+  }
+}*/
