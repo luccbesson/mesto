@@ -1,9 +1,10 @@
 .profile-info {
   display: grid;
-  align-self: center;
-  /*grid-template-columns: repeat(2, minmax(294px, 1fr));*/
-  grid-row-gap: 16px;
-  grid-column-gap: 18px;
+  /*align-self: center;*/
+  margin-top: 22px;
+  /*grid-template-columns: repeat(2, minmax(294px, 1 fr));*/
+  grid-row-gap: 7px;
+  grid-column-gap: 22px;
   grid-template-areas:
     "name edit-button"
     "description empty";

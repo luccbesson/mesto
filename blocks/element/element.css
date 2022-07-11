@@ -1,11 +1,11 @@
-.header {
+.element {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  max-width: calc(100% - (200px * 2));
-  min-height: 74px;
-  margin: 45px auto 40px auto;
-  align-items: flex-start;
+  max-width: 282px;
+
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 /*@media (max-width: 767px) {

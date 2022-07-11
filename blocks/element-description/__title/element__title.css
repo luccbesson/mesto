@@ -1,0 +1,19 @@
+.element__title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin: 0 auto 0 0;
+}
+
+/*@media (max-width: 767px) {
+  .header__logo {
+    width: 142px;
+    height: 42px;
+  }
+}*/

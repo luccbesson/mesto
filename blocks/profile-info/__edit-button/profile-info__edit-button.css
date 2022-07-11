@@ -2,7 +2,7 @@
   max-width: 24px;
   /*margin: 22px auto 66px 0;*/
   grid-area: edit-button;
-  align-self: center;
+  margin-top: 15px;
 }
 
 /*@media (max-width: 767px) {

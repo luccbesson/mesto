@@ -1,0 +1,13 @@
+.element-description {
+  display: flex;
+  /*max-width: 220px;*/
+  max-width: calc(100% - 15px - 21px);
+  margin: 25px 15px 28px 21px;
+}
+
+/*@media (max-width: 767px) {
+  .header__logo {
+    width: 142px;
+    height: 42px;
+  }
+}*/

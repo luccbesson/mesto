@@ -1,0 +1,11 @@
+.element__photo-place {
+  max-width: 100%;
+  margin: 0;
+}
+
+/*@media (max-width: 767px) {
+  .header__logo {
+    width: 142px;
+    height: 42px;
+  }
+}*/
