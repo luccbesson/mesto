@@ -7,6 +7,10 @@
   color: #FFFFFF;
   margin: 0;
   grid-area: name;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 294px;
 }
 
 @media (max-width: 1279px) {
