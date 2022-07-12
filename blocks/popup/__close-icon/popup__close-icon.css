@@ -14,6 +14,11 @@
   padding: 0;
 }
 
+.popup__close-icon:hover {
+  background: url(../../../images/popup__close-icon-hover.png);
+  cursor: pointer;
+}
+
 @media (max-width: 1279px) {
   .popup__close-icon {
     width: 20px;
