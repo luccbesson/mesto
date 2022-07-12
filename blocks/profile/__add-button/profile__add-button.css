@@ -1,12 +1,16 @@
 .profile__add-button {
-  max-width: 150x;
+  max-width: 150px;
   margin-left: auto;
   align-self: center;
+  background-image: url(../../../images/add-button.svg);
 }
 
-/*@media (max-width: 767px) {
-  .header__logo {
-    width: 142px;
-    height: 42px;
+@media (max-width: 1279px) {
+  .profile__add-button {
+    min-width: 282px;
+    min-height: 50px;
+    justify-self: center;
+    margin: 0;
+    background-image: url(../../../images/add-button-mob.svg);
   }
-}*/
+}

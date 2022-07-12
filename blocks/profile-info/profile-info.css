@@ -1,7 +1,7 @@
 .profile-info {
   display: grid;
-  /*align-self: center;*/
   margin-top: 22px;
+  margin-left: 25px;
   /*grid-template-columns: repeat(2, minmax(294px, 1 fr));*/
   grid-row-gap: 7px;
   grid-column-gap: 22px;
@@ -10,10 +10,16 @@
     "description empty";
 }
 
-/*@media (max-width: 767px) {
-  .header {
-    max-width: calc(1280px - (16px * 2));
-    min-width: calc(100% - (16px * 2));
-    margin: 16px 16px 48px 16px;
+@media (max-width: 1279px) {
+  .profile-info {
+    margin-top: 25px;
+    margin-bottom: 33px;
+    margin-left: 0;
+    /*grid-template-columns: repeat(2, minmax(294px, 1 fr));*/
+    grid-row-gap: 8px;
+    grid-column-gap: 13px;
+    grid-template-areas:
+    "name edit-button"
+    "description";
   }
-}*/
+}

@@ -9,10 +9,11 @@
   grid-area: name;
 }
 
-/*@media (max-width: 767px) {
-  .header {
-    max-width: calc(1280px - (16px * 2));
-    min-width: calc(100% - (16px * 2));
-    margin: 16px 16px 48px 16px;
+@media (max-width: 1279px) {
+  .profile-info__name {
+    max-width: 282px;
+    margin-left: 25px;
+    font-size: 27px;
+    line-height: 33px;
   }
-}*/
+}

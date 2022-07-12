@@ -10,10 +10,13 @@
   grid-area: description;
 }
 
-/*@media (max-width: 767px) {
-  .header {
-    max-width: calc(1280px - (16px * 2));
-    min-width: calc(100% - (16px * 2));
-    margin: 16px 16px 48px 16px;
+@media (max-width: 1279px) {
+  .profile-info__description {
+    font-size: 14px;
+    line-height: 17px;
+    margin: 0;
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 3;
   }
-}*/
+}
