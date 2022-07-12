@@ -1,0 +1,27 @@
+.popup__close-icon {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  top: 50%;
+  right: 50%;
+  margin-top: -205px;
+  margin-right: -255px;
+  border: 0;
+  border-radius: 0;
+  background: url(../../../images/popup__close-icon.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0;
+}
+
+@media (max-width: 1279px) {
+  .popup__close-icon {
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    right: 50%;
+    margin-right: -141px;
+    margin-top: -197px;
+    background: url(../../../images/popup__close-icon-mob.png);
+  }
+}
