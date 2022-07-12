@@ -4,6 +4,14 @@ document.getElementById('popup__profile-name').value = name_origin.innerHTML; //
 let description_origin = document.querySelector('.profile-info__description');
 document.getElementById('popup__profile-description').value = description_origin.innerHTML; //присваиваем форме оригинальные значения описания
 
+let editElement = document.querySelector('.profile-info__edit-button');
+function editHandler (evt) {
+    evt.preventDefault();
+    document.getElementById('popup').style.display = "inline";
+}
+editElement.addEventListener('click', editHandler);
+
+
 let formElement = document.querySelector('.popup__submit-button'); 
 function formSubmitHandler (evt) {
     evt.preventDefault();
@@ -27,11 +35,11 @@ formElement.addEventListener('click', formSubmitHandler);
 
 
 let closeElement = document.querySelector('.popup__close-icon');
-function formSubmitHandler (evt) {
+function closeHandler (evt) {
     evt.preventDefault();
     document.getElementById('popup').style.display = "none";
 }
-closeElement.addEventListener('click', formSubmitHandler);
+closeElement.addEventListener('click', closeHandler);
 
 
 
