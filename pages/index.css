@@ -4,6 +4,7 @@
 @import url(../blocks/root/root.css);
 /*SCRIPTS*/
 @import url(../scripts/script.js);
+@import url(../scripts/index.js);
 /*HEADER*/
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
