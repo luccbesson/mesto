@@ -1,0 +1,25 @@
+.profile-info {
+  display: grid;
+  margin-top: 22px;
+  margin-left: 28px;
+  /*grid-template-columns: repeat(2, minmax(294px, 1 fr));*/
+  grid-row-gap: 7px;
+  grid-column-gap: 22px;
+  grid-template-areas:
+    "name edit-button"
+    "description empty";
+}
+
+@media (max-width: 1279px) {
+  .profile-info {
+    margin-top: 25px;
+    margin-bottom: 33px;
+    margin-left: 0;
+    /*grid-template-columns: repeat(2, minmax(294px, 1 fr));*/
+    grid-row-gap: 8px;
+    grid-column-gap: 13px;
+    grid-template-areas:
+      "name edit-button"
+      "description";
+  }
+}

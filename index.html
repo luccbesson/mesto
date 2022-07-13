@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./pages/index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mesto</title>
+  <meta name="author" content="Lera S.">
+</head>
+<body class="root">
+  <header class="header">
+    <img class="header__logo" src="./images/header__logo.svg" alt="Логотип Место Россия">
+    <img class="header__line" src="./images/header__line.jpg" alt="Декоративная линия шапки">
+  </header>
+  <main>
+    <section class="profile">
+      <img class="profile__photo" src="./images/profile__avatar.jpg" alt="Фото профиля">
+      <div class="profile-info">
+        <h1 class="profile-info__name">Жак-Ив Кусто</h1>
+        <p class="profile-info__description">Исследователь океана</p>
+        <button class="profile-info__edit-button" type="button"></button>
+        <!--<img class="profile-info__edit-button" type="button" src="./images/edit-button.svg" alt="Кнопка редактирования профиля">-->
+      </div>
+      <button class="profile__add-button" type="button"></button>
+      <!--<img class="profile__add-button" type="button" src="./images/add-button.svg" alt="Кнопка добавления фото">-->
+    </section>
+    <section class="elements">
+      <div class="element">
+        <img class="element__photo-place" src="./images/Карелия.jpg" alt="Карелия">
+        <div class="element-description">
+          <p class="element__title">Карелия</p>
+          <div class="element__like"></div>
+          <!--<img class="element__like" src="./images/element__like.svg" alt="лайк">-->
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__photo-place" src="./images/Эльбрус.jpg" alt="Эльбрус">
+        <div class="element-description">
+          <p class="element__title">Гора Эльбрус</p>
+          <div class="element__like"></div>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__photo-place" src="./images/Домбай.jpg" alt="Домбай">
+        <div class="element-description">
+          <p class="element__title">Домбай</p>
+          <div class="element__like"></div>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__photo-place" src="./images/Байкал.jpg" alt="Байкал">
+        <div class="element-description">
+          <p class="element__title">Озеро Байкал</p>
+          <div class="element__like"></div>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__photo-place" src="./images/Алтай.jpg" alt="Алтай">
+        <div class="element-description">
+          <p class="element__title">Алтай</p>
+          <div class="element__like"></div>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__photo-place" src="./images/Карачаевск.jpg" alt="Карачаевск">
+        <div class="element-description">
+          <p class="element__title">Карачаево-Черкесия</p>
+          <div class="element__like"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="popup-overlay" id="overlay">
+    <div class="popup-container" id="popup">
+      <button class="popup__close-icon" type="reset"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <input type="text" class="popup__profile-name" value="" id="popup__profile-name"/>
+      <input type="text" class="popup__profile-description" value="" id="popup__profile-description"/>
+      <button class="popup__submit-button" type="submit">Сохранить</button>
+    </div>
+  </div>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">© 2022. Lera S.</p>
+  </footer>
+  <script src="./scripts/index.js"></script>
+</body>
+</html>
