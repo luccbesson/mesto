@@ -7,7 +7,9 @@ document.getElementById('popup__profile-description').value = description_origin
 let editElement = document.querySelector('.profile-info__edit-button');
 function editHandler (evt) {
     evt.preventDefault();
-    document.getElementById('popup').style.display = "inline";
+    //document.getElementById('overlay').style.display = "block";
+    document.getElementById('overlay').classList.add('popup-overlay_opened');
+
 }
 editElement.addEventListener('click', editHandler);
 
@@ -29,7 +31,8 @@ function formSubmitHandler (evt) {
     // console.log(name_origin);
     // console.log(description_origin);
 
-    document.getElementById('popup').style.display = "none";
+    //document.getElementById('overlay').style.display = "none";
+    document.getElementById('overlay').classList.remove('popup-overlay_opened');
 }
 formElement.addEventListener('click', formSubmitHandler);
 
@@ -37,7 +40,8 @@ formElement.addEventListener('click', formSubmitHandler);
 let closeElement = document.querySelector('.popup__close-icon');
 function closeHandler (evt) {
     evt.preventDefault();
-    document.getElementById('popup').style.display = "none";
+    //document.getElementById('overlay').style.display = "none";
+    document.getElementById('overlay').classList.remove('popup-overlay_opened');
 }
 closeElement.addEventListener('click', closeHandler);
 

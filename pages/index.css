@@ -34,3 +34,5 @@
 @import url(../blocks/popup/__profile-description/popup__profile-description.css);
 @import url(../blocks/popup/__submit-button/popup__submit-button.css);
 @import url(../blocks/popup/__close-icon/popup__close-icon.css);
+@import url(../blocks/popup-overlay/popup-overlay.css);
+@import url(../blocks/popup-overlay/_opened/popup-overlay_opened.css);
