@@ -15,7 +15,8 @@
 }
 
 .popup__close-icon:hover {
-  background: url(../../../images/popup__close-icon-hover.png);
+  /*background: url(../../../images/popup__close-icon-hover.png);*/
+  opacity: 0.6;
   cursor: pointer;
 }
 

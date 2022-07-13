@@ -19,7 +19,7 @@
     grid-row-gap: 8px;
     grid-column-gap: 13px;
     grid-template-areas:
-    "name edit-button"
-    "description";
+      "name edit-button"
+      "description";
   }
 }

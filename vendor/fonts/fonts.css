@@ -19,11 +19,11 @@
 
 @font-face {
   font-family: 'Inter';
-  font-style:  normal;
+  font-style: normal;
   font-weight: 500;
   font-display: swap;
   src: url(../fonts/Inter-3.19/Inter_Web/Inter-Medium.woff) format("woff"),
-       url(../fonts/Inter-3.19/Inter_Web/Inter-Medium.woff2) format("woff2");
+    url(../fonts/Inter-3.19/Inter_Web/Inter-Medium.woff2) format("woff2");
 }
 
 @font-face {
@@ -32,5 +32,5 @@
   font-weight: 900;
   font-display: swap;
   src: url("../fonts/Inter-3.19/Inter_Web/Inter-Black.woff") format("woff"),
-  url("../fonts/Inter-3.19/Inter_Web/Inter-Black.woff2") format("woff2");
+    url("../fonts/Inter-3.19/Inter_Web/Inter-Black.woff2") format("woff2");
 }

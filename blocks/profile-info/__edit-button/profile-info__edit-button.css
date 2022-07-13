@@ -12,7 +12,8 @@
 }
 
 .profile-info__edit-button:hover {
-  background: url(../../../images/edit-button-hover.png);
+  /*background: url(../../../images/edit-button-hover.png);*/
+  opacity: 0.6;
   cursor: pointer;
 }
 
@@ -24,4 +25,3 @@
     background: url(../../../images/edit-button-mob.svg);
   }
 }
-
