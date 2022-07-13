@@ -3,7 +3,6 @@
 @import url(../vendor/fonts/fonts.css);
 @import url(../blocks/root/root.css);
 /*SCRIPTS*/
-@import url(../scripts/script.js);
 @import url(../scripts/index.js);
 /*HEADER*/
 @import url(../blocks/header/header.css);
