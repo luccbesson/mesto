@@ -5,21 +5,11 @@
   opacity: 1;
   border-radius: 10px;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-left: -215px;
-  margin-top: -165px;
 }
 
 @media (max-width: 1279px) {
   .popup {
     width: 282px;
     height: 322px;
-    border-radius: 10px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-left: -141px;
-    margin-top: -161px;
   }
 }
