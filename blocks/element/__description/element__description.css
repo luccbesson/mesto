@@ -1,4 +1,4 @@
-.element-description {
+.element__description {
   display: flex;
   /*max-width: 220px;*/
   max-width: calc(100% - 15px - 21px);
@@ -6,7 +6,7 @@
 }
 
 @media (max-width: 1279px) {
-  .element-description {
+  .element__description {
     margin-bottom: 25px;
   }
 }

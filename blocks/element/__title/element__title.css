@@ -9,5 +9,6 @@
   text-overflow: ellipsis;
   overflow: hidden;
   margin: 0 auto 0 0;
+  padding: 0;
   max-width: 216px;
 }

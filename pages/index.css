@@ -20,18 +20,19 @@
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/element/element.css);
 @import url(../blocks/element/__photo-place/element__photo-place.css);
-@import url(../blocks/element-description/element-description.css);
-@import url(../blocks/element-description/__title/element__title.css);
-@import url(../blocks/element-description/__like/element__like.css);
-@import url(../blocks/element-description/__like/_checked/element__like_checked.css);
+@import url(../blocks/element/__description/element__description.css);
+@import url(../blocks/element/__title/element__title.css);
+@import url(../blocks/element/__like/element__like.css);
+@import url(../blocks/element/__like/_checked/element__like_checked.css);
 /*FOOTER*/
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 /*POPUP*/
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__title/popup__title.css);
-@import url(../blocks/popup/__profile-name/popup__profile-name.css);
-@import url(../blocks/popup/__profile-description/popup__profile-description.css);
+@import url(../blocks/popup/__profile-field/popup__profile-field.css);
+@import url(../blocks/popup/__profile-field/_name/popup__profile-field_name.css);
+@import url(../blocks/popup/__profile-field/_job/popup__profile-field_job.css);
 @import url(../blocks/popup/__submit-button/popup__submit-button.css);
 @import url(../blocks/popup/__close-icon/popup__close-icon.css);
 @import url(../blocks/popup-overlay/popup-overlay.css);

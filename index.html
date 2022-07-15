@@ -10,7 +10,6 @@
 <body class="root">
   <header class="header">
     <img class="header__logo" src="./images/header__logo.svg" alt="Логотип Место Россия">
-    <!--<img class="header__line" src="./images/header__line.jpg" alt="Декоративная линия шапки">-->
   </header>
   <main>
     <section class="profile">
@@ -27,58 +26,59 @@
     <section class="elements">
       <div class="element">
         <img class="element__photo-place" src="./images/Карелия.jpg" alt="Карелия">
-        <div class="element-description">
-          <p class="element__title">Карелия</p>
-          <div class="element__like"></div>
-          <!--<img class="element__like" src="./images/element__like.svg" alt="лайк">-->
+        <div class="element__description">
+          <h2 class="element__title">Карелия</h2>
+          <button class="element__like" type="button"></button>
         </div>
       </div>
       <div class="element">
         <img class="element__photo-place" src="./images/Эльбрус.jpg" alt="Эльбрус">
-        <div class="element-description">
-          <p class="element__title">Гора Эльбрус</p>
-          <div class="element__like"></div>
+        <div class="element__description">
+          <h2 class="element__title">Гора Эльбрус</h2>
+          <button class="element__like" type="button"></button>
         </div>
       </div>
       <div class="element">
         <img class="element__photo-place" src="./images/Домбай.jpg" alt="Домбай">
-        <div class="element-description">
-          <p class="element__title">Домбай</p>
-          <div class="element__like"></div>
+        <div class="element__description">
+          <h2 class="element__title">Домбай</h2>
+          <button class="element__like" type="button"></button>
         </div>
       </div>
       <div class="element">
         <img class="element__photo-place" src="./images/Байкал.jpg" alt="Байкал">
-        <div class="element-description">
-          <p class="element__title">Озеро Байкал</p>
-          <div class="element__like"></div>
+        <div class="element__description">
+          <h2 class="element__title">Озеро Байкал</h2>
+          <button class="element__like" type="button"></button>
         </div>
       </div>
       <div class="element">
         <img class="element__photo-place" src="./images/Алтай.jpg" alt="Алтай">
-        <div class="element-description">
-          <p class="element__title">Алтай</p>
-          <div class="element__like"></div>
+        <div class="element__description">
+          <h2 class="element__title">Алтай</h2>
+          <button class="element__like" type="button"></button>
         </div>
       </div>
       <div class="element">
         <img class="element__photo-place" src="./images/Карачаевск.jpg" alt="Карачаевск">
-        <div class="element-description">
-          <p class="element__title">Карачаево-Черкесия</p>
-          <div class="element__like"></div>
+        <div class="element__description">
+          <h2 class="element__title">Карачаево-Черкесия</h2>
+          <button class="element__like" type="button"></button>
         </div>
       </div>
     </section>
-    <div class="popup-overlay" id="overlay">
+  </main>
+  <div class="popup-overlay" id="overlay">
     <div class="popup" id="popup">
-      <button class="popup__close-icon" type="reset"></button>
+      <button class="popup__close-icon" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <input type="text" class="popup__profile-name" value="" id="popup__profile-name"/>
-      <input type="text" class="popup__profile-description" value="" id="popup__profile-description"/>
-      <button class="popup__submit-button" type="submit">Сохранить</button>
+      <form action="#" method="post" name="submitform" id="submitform">
+        <input type="text" class="popup__profile-field popup__profile-field_name" value="" id="popup__profile-name" />
+        <input type="text" class="popup__profile-field popup__profile-field_job" value="" id="popup__profile-description" />
+        <button class="popup__submit-button" type="submit" id="submit">Сохранить</button>
+      </form>
     </div>
   </div>
-  </main>
   <footer class="footer">
     <p class="footer__copyright">© 2022. Lera S.</p>
   </footer>

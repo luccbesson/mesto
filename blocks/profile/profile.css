@@ -8,8 +8,7 @@
 }
 
 @media (max-width: 1279px) {
-  .profile {
-    display: flex;
+  .profile { 
     flex-direction: column;
     max-width: calc(100% - (19px * 2));
     /*max-width: 282px;*/

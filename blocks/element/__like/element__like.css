@@ -7,6 +7,10 @@
   margin-right: 5px;
   margin-top: 5px;
   background: url(../../../images/element__like.svg);
+  border: 0;
+  border-radius: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .element__like:hover {
