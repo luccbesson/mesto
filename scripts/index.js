@@ -1,6 +1,10 @@
-//присваиваем полю формы текущее (старое) значение поля профиля 
-let nameInput = document.querySelector('.profile-info__name');
-let jobInput = document.querySelector('.profile-info__description');
+//присваиваем переменной текущее (старое) значение поля профиля 
+let nameOrigin = document.querySelector('.profile-info__name');
+let descriptionOrigin = document.querySelector('.profile-info__description');
+//присваиваем переменной текущее значение поле формы
+let nameInput = document.querySelector('.popup__profile-field_type_name');
+let jobInput = document.querySelector('.popup__profile-field_type_job');
+
 
 //кнопка сохранения данных формы
 let formElement = document.getElementById('submitform');
@@ -9,18 +13,17 @@ function formSubmitHandler(evt) {
     // Получите значение полей jobInput и nameInput из свойства value
     // Выберите элементы, куда должны быть вставлены значения полей
     // Вставьте новые значения с помощью textContent
-    nameInput.textContent = document.querySelector('.popup__profile-field_type_name').value; //изменить на id
-    jobInput.textContent = document.querySelector('.popup__profile-field_type_job').value; //изменить на id
-
+    nameOrigin.textContent = nameInput.value;
+    descriptionOrigin.textContent = jobInput.value
     closeHandler();
 }
-formElement.addEventListener('submit', formSubmitHandler); 
+formElement.addEventListener('submit', formSubmitHandler);
 
 //кнопка редактирования профиля
 let editElement = document.querySelector('.profile-info__edit-button');
 function editHandler() {
-    document.getElementById('popup__profile-name').value = nameInput.textContent;
-    document.getElementById('popup__profile-description').value = jobInput.textContent;
+    nameInput.value = nameOrigin.textContent;
+    jobInput.value = descriptionOrigin.textContent
     document.getElementById('overlay').classList.add('popup-overlay_opened');
 }
 editElement.addEventListener('click', editHandler);
