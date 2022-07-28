@@ -1,3 +1,64 @@
+//массив карточек из задания для отображения на странице
+const initialCards = [
+    {
+        name: 'Карелия',
+        link: './images/Карелия.jpg'
+    },
+    {
+        name: 'Гора Эльбрус',
+        link: './images/Эльбрус.jpg'
+    },
+    {
+        name: 'Домбай',
+        link: './images/Домбай.jpg'
+    },
+    {
+        name: 'Озеро Байкал',
+        link: './images/Байкал.jpg'
+    },
+    {
+        name: 'Алтай',
+        link: './images/Алтай.jpg'
+    },
+    {
+        name: 'Карачаево-Черкесия',
+        link: './images/Карачаевск.jpg'
+    }
+]
+//const cardsArray = Array.from(initialCards);
+
+
+//отдельные селекторы, чтобы напряму не использовать имя класса по всему скрипту
+const selectors =
+{
+    cards: '.elements',
+}
+
+//создание DOM объектов
+const cards = document.querySelector(selectors.cards);
+
+function createCard(object) {
+    //создаем шаблон для карточки
+    const template = `<div class="element">
+    <img class="element__photo-place" src=${object.link} alt="фото карточки"><div class="element__description">
+    <h2 class="element__title">${object.name}</h2>
+    <button class="element__like" type="button"></button>
+    </div>`
+    cards.insertAdjacentHTML('beforeend', template);
+}
+
+function createInitialCard() {
+    initialCards.map(function (item) {
+        createCard(item);
+    })
+}
+
+createInitialCard();
+
+
+
+
+
 //присваиваем переменной текущее (старое) значение поля профиля 
 let nameOrigin = document.querySelector('.profile-info__name');
 let descriptionOrigin = document.querySelector('.profile-info__description');
