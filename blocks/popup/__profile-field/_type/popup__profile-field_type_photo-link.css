@@ -1,0 +1,9 @@
+.popup__profile-field_type_photo-link {
+  margin: 0 auto 13px 35px;
+}
+
+@media (max-width: 1279px) {
+  .popup__profile-field_type_photo-link {
+    margin: 0px auto 29px 20px;
+  }
+}

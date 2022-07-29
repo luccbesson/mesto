@@ -36,3 +36,5 @@
 @import url(../blocks/popup/__close-icon/popup__close-icon.css);
 @import url(../blocks/popup-overlay/popup-overlay.css);
 @import url(../blocks/popup-overlay/_opened/popup-overlay_opened.css);
+@import url(../blocks/popup/__profile-field/_type/popup__profile-field_type_photo-name.css);
+@import url(../blocks/popup/__profile-field/_type/popup__profile-field_type_photo-link.css);

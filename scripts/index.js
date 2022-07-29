@@ -32,6 +32,8 @@ const initialCards = [
 const selectors =
 {
     cards: '.elements',
+    overlayEditForm: 'overlay_edit-form',
+    overlayAddForm: 'overlay_add-form'
 }
 
 //создание DOM объектов
@@ -48,11 +50,11 @@ function createCard(object) {
 }
 
 function createInitialCard() {
-    initialCards.map(function (item) {
-        createCard(item);
-    })
+    // initialCards.map(function (item) {
+    //     createCard(item);
+    // })
+    initialCards.map(createCard);
 }
-
 createInitialCard();
 
 
@@ -66,35 +68,58 @@ let descriptionOrigin = document.querySelector('.profile-info__description');
 let nameInput = document.querySelector('.popup__profile-field_type_name');
 let jobInput = document.querySelector('.popup__profile-field_type_job');
 
-
-//кнопка сохранения данных формы
-let formElement = document.getElementById('submitform');
-function formSubmitHandler(evt) {
-    evt.preventDefault();
-    // Получите значение полей jobInput и nameInput из свойства value
-    // Выберите элементы, куда должны быть вставлены значения полей
-    // Вставьте новые значения с помощью textContent
-    nameOrigin.textContent = nameInput.value;
-    descriptionOrigin.textContent = jobInput.value
-    closeHandler();
-}
-formElement.addEventListener('submit', formSubmitHandler);
-
-//кнопка редактирования профиля
-let editElement = document.querySelector('.profile-info__edit-button');
+//кнопка открытия формы редактирования профиля
+const editElement = document.getElementById('button_edit-profile');
 function editHandler() {
     nameInput.value = nameOrigin.textContent;
     jobInput.value = descriptionOrigin.textContent
-    document.getElementById('overlay').classList.add('popup-overlay_opened');
+    document.getElementById('overlay_edit-form').classList.add('popup-overlay_opened');
 }
 editElement.addEventListener('click', editHandler);
 
-//кнопка закрытия формы
-let closeElement = document.querySelector('.popup__close-icon');
-function closeHandler() {
-    document.getElementById('overlay').classList.remove('popup-overlay_opened');
+//кнопка сохранения данных формы редактирования профиля
+const formEditElement = document.getElementById('submit_edit-form');
+function formEditSubmitHandler(evt) {
+    evt.preventDefault();
+    nameOrigin.textContent = nameInput.value;
+    descriptionOrigin.textContent = jobInput.value;
+    closeEditHandler();
 }
-closeElement.addEventListener('click', closeHandler);
+formEditElement.addEventListener('submit', formEditSubmitHandler);
+
+//конпка открытия формы долбавления фото в ленту
+const addElement = document.getElementById('button_add-place');
+function addHandler() {
+    document.getElementById('overlay_add-form').classList.add('popup-overlay_opened');
+}
+addElement.addEventListener('click', addHandler);
+
+//здесь будет кнопка сохранения формы добавления фото в ленту
+const formAddElement = document.getElementById('submit_add-form');
+function formAddSubmitHandler(evt) {
+    evt.preventDefault();
+    //здесь будет функционал добавления фото в ленту
+    //const photoName.textContent = document.getElementById('popup__photo-name').value;
+    //const photoLink.textContent = document.getElementById('popup__photo-link').value;
+    closeAddHandler();
+}
+formAddElement.addEventListener('submit', formAddSubmitHandler);
+
+
+//кнопка закрытия формы редактирования профиля
+let closeEditElement = document.getElementById('button_close-edit-form');
+function closeEditHandler() {
+    document.getElementById('overlay_edit-form').classList.remove('popup-overlay_opened');
+}
+closeEditElement.addEventListener('click', closeEditHandler);
+
+//кнопка закрытия формы добавления фото
+const closeAddElement = document.getElementById('button_close-add-form');
+function closeAddHandler() {
+    document.getElementById('overlay_add-form').classList.remove('popup-overlay_opened');
+}
+closeAddElement.addEventListener('click', closeAddHandler);
+
 
 
 
