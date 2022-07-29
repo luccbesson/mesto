@@ -44,7 +44,7 @@ function createCard(object) {
     <h2 class="element__title">${object.name}</h2>
     <button class="element__like" type="button"></button>
     </div>`
-    cards.insertAdjacentHTML('beforeend', template);
+    cards.insertAdjacentHTML('afterbegin', template);
 }
 
 function createInitialCard() {
@@ -56,15 +56,12 @@ function createInitialCard() {
 createInitialCard();
 
 
-
-
-
 //присваиваем переменной текущее (старое) значение поля профиля 
-let nameOrigin = document.querySelector('.profile-info__name');
-let descriptionOrigin = document.querySelector('.profile-info__description');
+const nameOrigin = document.querySelector('.profile-info__name');
+const descriptionOrigin = document.querySelector('.profile-info__description');
 //присваиваем переменной текущее значение поле формы
-let nameInput = document.querySelector('.popup__profile-field_type_name');
-let jobInput = document.querySelector('.popup__profile-field_type_job');
+const nameInput = document.querySelector('.popup__profile-field_type_name');
+const jobInput = document.querySelector('.popup__profile-field_type_job');
 
 //кнопка открытия формы редактирования профиля
 const editElement = document.getElementById('button_edit-profile');
@@ -89,6 +86,8 @@ formEditElement.addEventListener('submit', formEditSubmitHandler);
 const addElement = document.getElementById('button_add-place');
 function addHandler() {
     document.getElementById('overlay_add-form').classList.add('popup-overlay_opened');
+    document.querySelector('.popup__profile-field_type_photo-name').value = '';
+    document.querySelector('.popup__profile-field_type_photo-link').value = '';
 }
 addElement.addEventListener('click', addHandler);
 
@@ -96,9 +95,15 @@ addElement.addEventListener('click', addHandler);
 const formAddElement = document.getElementById('submit_add-form');
 function formAddSubmitHandler(evt) {
     evt.preventDefault();
-    //здесь будет функционал добавления фото в ленту
-    //const photoName.textContent = document.getElementById('popup__photo-name').value;
-    //const photoLink.textContent = document.getElementById('popup__photo-link').value;
+    const newPhotoName = document.querySelector('.popup__profile-field_type_photo-name');
+    const newPhotoLink = document.querySelector('.popup__profile-field_type_photo-link');
+    const newCard = [
+        {
+            name: newPhotoName.value,
+            link: newPhotoLink.value
+        }
+    ]
+    newCard.map(createCard);
     closeAddHandler();
 }
 formAddElement.addEventListener('submit', formAddSubmitHandler);
