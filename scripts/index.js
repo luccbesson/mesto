@@ -31,9 +31,7 @@ const initialCards = [
 //отдельные селекторы, чтобы напряму не использовать имя класса по всему скрипту
 const selectors =
 {
-    cards: '.elements',
-    overlayEditForm: 'overlay_edit-form',
-    overlayAddForm: 'overlay_add-form'
+    cards: '.elements'
 }
 
 //создание DOM объектов
@@ -50,10 +48,10 @@ function createCard(object) {
 }
 
 function createInitialCard() {
-    // initialCards.map(function (item) {
-    //     createCard(item);
-    // })
-    initialCards.map(createCard);
+    initialCards.map(function (item) {
+        createCard(item);
+    })
+    //initialCards.map(createCard);
 }
 createInitialCard();
 
