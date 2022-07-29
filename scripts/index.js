@@ -91,7 +91,7 @@ function addHandler() {
 }
 addElement.addEventListener('click', addHandler);
 
-//здесь будет кнопка сохранения формы добавления фото в ленту
+//кнопка сохранения формы добавления фото в ленту
 const formAddElement = document.getElementById('submit_add-form');
 function formAddSubmitHandler(evt) {
     evt.preventDefault();
