@@ -31,20 +31,51 @@ const initialCards = [
 //отдельные селекторы, чтобы напряму не использовать имя класса по всему скрипту
 const selectors =
 {
-    cards: '.elements'
+    cards: '.elements',
+    template: '#cards-item-template',
+    cardName: '.element__title',
+    cardLink: '.element__photo-place',
+    buttonLike: '.element__like',
+    buttonLikeChecked: '.element__like_checked',
+    buttonLikeCheckedName: 'element__like_checked',
+    buttonDelete: '.element__delete'
 }
 
 //создание DOM объектов
 const cards = document.querySelector(selectors.cards);
+const template = document.querySelector(selectors.template).content.children[0];
 
 function createCard(object) {
-    //создаем шаблон для карточки
-    const template = `<div class="element">
-    <img class="element__photo-place" src=${object.link} alt="фото карточки"><div class="element__description">
-    <h2 class="element__title">${object.name}</h2>
-    <button class="element__like" type="button"></button>
-    </div>`
-    cards.insertAdjacentHTML('afterbegin', template);
+    ////создаем шаблон для карточки
+    // const template = `<div class="element">
+    // <img class="element__photo-place" src=${object.link} alt="фото карточки"><div class="element__description">
+    // <h2 class="element__title">${object.name}</h2>
+    // <button class="element__like" type="button"></button>
+    // </div>`
+    //cards.insertAdjacentHTML('afterbegin', template);
+
+    const cardElement = template.cloneNode(true);
+    const name = cardElement.querySelector(selectors.cardName);
+    name.textContent = object.name;
+    const link = cardElement.querySelector(selectors.cardLink);
+    link.src = object.link;
+    // cardElement.querySelector(selectors.cardName).textContent = object.name;
+    // cardElement.querySelector(selectors.cardLink).src = object.link;
+
+    const btnDel = cardElement.querySelector(selectors.buttonDelete);
+    btnDel.addEventListener('click', function () {
+        cardElement.remove();
+    });
+
+    const btnLike = cardElement.querySelector(selectors.buttonLike);
+    btnLike.addEventListener('click', function(){
+        btnLike.classList.add(selectors.buttonLikeCheckedName);
+        console.log(btnLike);
+    });
+
+
+    cards.prepend(cardElement);
+
 }
 
 function createInitialCard() {
@@ -122,6 +153,13 @@ function closeAddHandler() {
     document.getElementById('overlay_add-form').classList.remove('popup-overlay_opened');
 }
 closeAddElement.addEventListener('click', closeAddHandler);
+
+// //кнопка - лайк
+// const likeElement = document.getElementById('button_close-add-form');
+// function likeHandler() {
+//     document.querySelector('.element__like').classList.add('element__like_checked');
+// }
+// likeElement.addEventListener('click', likeHandler);
 
 
 
