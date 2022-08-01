@@ -68,7 +68,7 @@ function createCard(object) {
     });
 
     const btnLike = cardElement.querySelector(selectors.buttonLike);
-    btnLike.addEventListener('click', function(){
+    btnLike.addEventListener('click', function () {
         btnLike.classList.add(selectors.buttonLikeCheckedName);
         console.log(btnLike);
     });
