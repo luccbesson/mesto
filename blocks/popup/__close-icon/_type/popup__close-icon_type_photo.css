@@ -1,0 +1,21 @@
+.popup__close-icon_type_photo {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  top: 50%;
+  right: 50%;
+  /* margin-top: -205px;
+  margin-right: -255px; */
+}
+
+/* @media (max-width: 1279px) {
+  .popup__close-icon {
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    right: 50%;
+    margin-right: -141px;
+    margin-top: -197px;
+    background: url(../../../images/popup__close-icon-mob.png);
+  }
+} */

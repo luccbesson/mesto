@@ -1,0 +1,7 @@
+.popup__photo-container {
+  display: flex;
+  box-sizing: border-box;
+  position: relative;
+  gap: 10px;
+  flex-direction: column;
+  }
