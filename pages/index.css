@@ -39,8 +39,7 @@
 @import url(../blocks/popup-overlay/_opened/popup-overlay_opened.css);
 @import url(../blocks/popup/__profile-field/_type/popup__profile-field_type_photo-name.css);
 @import url(../blocks/popup/__profile-field/_type/popup__profile-field_type_photo-link.css);
-@import url(../blocks/popup/_type/popup_type_photo.css);
+@import url(../blocks/popup/_type/popup_photo.css);
 @import url(../blocks/popup/__photo/popup__photo.css);
-@import url(../blocks/popup/__close-icon//_type/popup__close-icon_type_photo.css);
 @import url(../blocks/popup/__photo-container/popup__photo-container.css);
 @import url(../blocks/popup/__photo-title/popup__photo-title.css);
