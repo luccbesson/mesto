@@ -32,50 +32,55 @@ const initialCards = [
 const selectors =
 {
     cards: '.elements',
-    template: '#cards-item-template',
-    cardName: '.element__title',
-    cardLink: '.element__photo-place',
+    cardTemplate: '#cards-item-template',
+    cardTitle: '.element__title',
+    cardPhoto: '.element__photo-place',
     buttonLike: '.element__like',
     buttonLikeChecked: '.element__like_checked',
     buttonLikeCheckedName: 'element__like_checked',
-    buttonDelete: '.element__delete'
+    buttonDelete: '.element__delete',
+    popupPhoto: '.popup__photo',
+    popupPhotoTitle: '.popup__photo-title'
 }
 
 //создание DOM объектов
 const cards = document.querySelector(selectors.cards);
-const template = document.querySelector(selectors.template).content.children[0];
+const cardTemplate = document.querySelector(selectors.cardTemplate).content.children[0];
 
 function createCard(object) {
-    ////создаем шаблон для карточки
-    // const template = `<div class="element">
-    // <img class="element__photo-place" src=${object.link} alt="фото карточки"><div class="element__description">
-    // <h2 class="element__title">${object.name}</h2>
-    // <button class="element__like" type="button"></button>
-    // </div>`
-    //cards.insertAdjacentHTML('afterbegin', template);
-
-    const cardElement = template.cloneNode(true);
-    const name = cardElement.querySelector(selectors.cardName);
+    //создаем ноду из шаблона и рендерим карточки
+    const cardElement = cardTemplate.cloneNode(true);
+    const name = cardElement.querySelector(selectors.cardTitle);
     name.textContent = object.name;
-    const link = cardElement.querySelector(selectors.cardLink);
-    link.src = object.link;
-    // cardElement.querySelector(selectors.cardName).textContent = object.name;
-    // cardElement.querySelector(selectors.cardLink).src = object.link;
+    // const link = cardElement.querySelector(selectors.cardPhoto);
+    // link.src = object.link;
+    const image = cardElement.querySelector(selectors.cardPhoto);
+    image.src = object.link;
 
+    //открытие картинки в полном размере
+    image.addEventListener('click', function () {
+        document.getElementById('overlay_photo').classList.add('popup-overlay_opened');
+        const photo = document.querySelector(selectors.popupPhoto);
+        photo.src = object.link;
+        const title = document.querySelector(selectors.popupPhotoTitle);
+        title.textContent = object.name;
+    })
+
+    //удаление фото
     const btnDel = cardElement.querySelector(selectors.buttonDelete);
     btnDel.addEventListener('click', function () {
         cardElement.remove();
     });
 
+    //лайк фото
     const btnLike = cardElement.querySelector(selectors.buttonLike);
     btnLike.addEventListener('click', function () {
         btnLike.classList.add(selectors.buttonLikeCheckedName);
         console.log(btnLike);
     });
 
-
+    //добавление новой карточки в начало массива
     cards.prepend(cardElement);
-
 }
 
 function createInitialCard() {
@@ -154,12 +159,12 @@ function closeAddHandler() {
 }
 closeAddElement.addEventListener('click', closeAddHandler);
 
-// //кнопка - лайк
-// const likeElement = document.getElementById('button_close-add-form');
-// function likeHandler() {
-//     document.querySelector('.element__like').classList.add('element__like_checked');
-// }
-// likeElement.addEventListener('click', likeHandler);
+//кнопка закрытия попапа с фото
+const closePhotoElement = document.getElementById('button_close-photo');
+function closePhotoHandler() {
+    document.getElementById('overlay_photo').classList.remove('popup-overlay_opened');
+}
+closePhotoElement.addEventListener('click', closePhotoHandler);
 
 
 

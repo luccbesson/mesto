@@ -1,16 +1,21 @@
 .popup__close-icon {
-  position: fixed;
+  /* position: fixed; */
+  position: absolute;
   width: 32px;
   height: 32px;
-  top: 50%;
+  /* top: 50%;
   right: 50%;
   margin-top: -205px;
-  margin-right: -255px;
+  margin-right: -255px;*/
+  top: -40px;
+  right: -40px;
+  /* background-color: transparent; */
   border: 0;
-  border-radius: 0;
+  /* border-radius: 0; */
   background: url(../../../images/popup__close-icon.png);
   background-size: cover;
   background-repeat: no-repeat;
+  transition: opacity .2s;
   padding: 0;
 }
 
@@ -24,10 +29,12 @@
   .popup__close-icon {
     width: 20px;
     height: 20px;
-    top: 50%;
+    /* top: 50%;
     right: 50%;
     margin-right: -141px;
-    margin-top: -197px;
+    margin-top: -197px; */
+    top: -36px;
+    right: 0;
     background: url(../../../images/popup__close-icon-mob.png);
   }
 }
