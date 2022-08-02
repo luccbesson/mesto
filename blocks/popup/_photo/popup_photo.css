@@ -1,7 +1,7 @@
-.popup_type_photo {
-  opacity: 1;
+.popup_photo {
+  /* opacity: 1; */
   /* border-radius: 10px; */
-  position: fixed;
+  /* position: fixed; */
 }
 
 /* @media (max-width: 1279px) {
