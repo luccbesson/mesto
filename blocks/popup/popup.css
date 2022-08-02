@@ -1,5 +1,5 @@
 .popup {
-  width: 430px;
+  max-width: 430px;
   min-height: 330px;
   background: #FFFFFF;
   opacity: 1;
@@ -9,7 +9,7 @@
 
 @media (max-width: 1279px) {
   .popup {
-    width: 282px;
-    min-height: 322px;
+    max-width: 282px;
+    max-height: 322px;
   }
 }
