@@ -26,11 +26,11 @@
     <section class="elements">
     </section>
   </main>
-  <div class="popup-overlay" id="overlay_edit-form">
-    <div class="popup" id="popup_edit-form">
+  <div class="popup popup_type_edit-profile">
+    <div class="popup__container">
       <button class="popup__close-icon" type="button" id="button_close-edit-form"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form action="#" method="post" name="submitform" id="submit_edit-form">
+      <form class="popup__form" action="#" method="post" name="submitform" id="submit_edit-form">
         <input type="text" class="popup__profile-field popup__profile-field_type_name" value=""
           id="popup__profile-name" />
         <input type="text" class="popup__profile-field popup__profile-field_type_job" value=""
@@ -39,11 +39,11 @@
       </form>
     </div>
   </div>
-  <div class="popup-overlay" id="overlay_add-form">
-    <div class="popup" id="popup_add-form">
+  <div class="popup popup_type_add-photo">
+    <div class="popup__container">
       <button class="popup__close-icon" type="button" id="button_close-add-form"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form action="#" method="post" name="submitform" id="submit_add-form">
+      <form class="popup__form" action="#" method="post" name="submitform" id="submit_add-form">
         <input type="text" class="popup__profile-field popup__profile-field_type_photo-name" value=""
           id="popup__photo-name" placeholder="Название" />
         <input type="text" class="popup__profile-field popup__profile-field_type_photo-link" value=""
@@ -52,14 +52,11 @@
       </form>
     </div>
   </div>
-  <div class="popup-overlay" id="overlay_photo">
-    <div class="popup popup_photo" id="popup_photo">
-      <figure class="popup__photo-container">
-        <!-- <button class="popup__close-icon popup__close-icon_type_photo" type="button" id="button_close-photo"></button> -->
+  <div class="popup popup_type_photo">
+    <div class="popup__container popup__container_photo">
         <button class="popup__close-icon" type="button" id="button_close-photo"></button>
         <img class="popup__photo" src="#" alt="фото в попапе" />
-        <figcaption class="popup__photo-title"></figcaption>
-      </figure>
+        <h3 class="popup__photo-title"></h3>
     </div>
   </div>
   <footer class="footer">
