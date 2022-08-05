@@ -85,6 +85,8 @@ const btnClosePhotoElement = document.getElementById(selectors.buttonClosePhotoI
 //создание DOM объектов
 const cardsContainer = document.querySelector(selectors.cards);
 const cardTemplate = document.querySelector(selectors.cardTemplate).content.querySelector(selectors.card);
+const photo = document.querySelector(selectors.popupPhoto);
+const title = document.querySelector(selectors.popupPhotoTitle);
 
 //текущие (старые) значение поля профиля 
 const nameOrigin = document.querySelector(selectors.profileNameOrigin);
@@ -107,10 +109,8 @@ function createCard(object) {
     //открытие картинки в полном размере
     image.addEventListener('click', function () {
         openPopup(popupWindowPhoto);
-        const photo = document.querySelector(selectors.popupPhoto);
         photo.src = object.link;
         photo.alt = object.name;
-        const title = document.querySelector(selectors.popupPhotoTitle);
         title.textContent = object.name;
 
     })
@@ -189,14 +189,11 @@ function addFormPhotoSubmitHandler(evt) {
     evt.preventDefault();
     const newPhotoName = popupPhotoName;
     const newPhotoLink = popupPhotoLink;
-    const newCard = [
-        {
+    const newCard =  {
             name: newPhotoName.value,
             link: newPhotoLink.value
-        }
-    ]
-    // newCard.map(createCard);
-    newCard.map(renderCard);
+        };
+    renderCard(newCard);
     closeAddHandler();
 }
 formPhotoAddElement.addEventListener('submit', addFormPhotoSubmitHandler);
