@@ -1,15 +1,16 @@
 .popup__container {
   max-width: 430px;
-  min-height: 330px;
+  /* min-height: 330px; */
   background: #FFFFFF;
   opacity: 1;
   border-radius: 10px;
   position: fixed;
+  z-index: 1;
 }
 
 @media (max-width: 1279px) {
   .popup__container {
     max-width: 282px;
-    max-height: 322px;
+    /* max-height: 322px; */
   }
 }

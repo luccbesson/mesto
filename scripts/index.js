@@ -53,6 +53,11 @@ const selectors =
     buttonLikeCheckedName: 'element__like_checked',
     buttonDelete: '.element__delete',
 
+    overlay: '.popup',
+    // overlayEditProfile: '.popup_type_edit-profile',
+    // overlayAddPhoto: '.popup_type_add-photo',
+    // overlayPhoto: '.popup_type_photo',
+
     popupWindow: '.popup__container',
     popupOpenedName: 'popup_opened',
 
@@ -66,12 +71,28 @@ const selectors =
     popupPhotoLink: '.popup__profile-field_type_photo-link'
 }
 
+const form =
+{
+    formElement: '.popup__form',
+    formInput: '.popup__profile-field',
+    buttonSubmitForm: '.popup__submit-button',
+    buttonSubmitFormDisabledName: 'popup__submit-button_disabled'
+}
+
+//формы
+const formList = Array.from(document.querySelectorAll(form.formElement));
+
 //попапы
 const popupWindowPhoto = document.querySelector(selectors.photoPopup);
 const popupWindowEditProfile = document.querySelector(selectors.profileEditPopup);
 const popupWindowAddPhoto = document.querySelector(selectors.photoAddPopup);
 const popupPhotoName = document.querySelector(selectors.popupPhotoName);
 const popupPhotoLink = document.querySelector(selectors.popupPhotoLink);
+const overlayList = Array.from(document.querySelectorAll(selectors.overlay));
+// const overlayEditProfile = document.querySelector(selectors.overlayEditProfile);
+// const overlayAddPhoto = document.querySelector(selectors.overlayAddPhoto);
+// const overlayPhoto = document.querySelector(selectors.overlayPhoto);
+const popupWindow = document.querySelector(selectors.popupWindow);
 
 //кнопки
 const profileEditElement = document.getElementById(selectors.buttonEditID);
@@ -94,6 +115,7 @@ const descriptionOrigin = document.querySelector(selectors.profileJobOrigin);
 //новые значения поля профиля из попапа
 const nameInput = document.querySelector(selectors.profileNameInput);
 const jobInput = document.querySelector(selectors.profileJobInput);
+
 
 
 //рендер карточки
@@ -153,6 +175,10 @@ createInitialCard();
 //открыть попап
 function openPopup(popup) {
     popup.classList.add(selectors.popupOpenedName);
+    //console.log(form);
+    enableValidation(form);
+    document.addEventListener('keyup', ClosePopUpByEscape);
+    ClosePopUpByOverlayClick();
 }
 
 function closePopup(popup) {
@@ -162,7 +188,7 @@ function closePopup(popup) {
 //кнопка открытия формы редактирования профиля
 function editProfileHandler() {
     nameInput.value = nameOrigin.textContent;
-    jobInput.value = descriptionOrigin.textContent
+    jobInput.value = descriptionOrigin.textContent;
     openPopup(popupWindowEditProfile);
 }
 profileEditElement.addEventListener('click', editProfileHandler);
@@ -178,9 +204,9 @@ formProfileEditElement.addEventListener('submit', editProfileFormSubmitHandler);
 
 //конпка открытия формы долбавления фото в ленту
 function addPhotoHandler() {
-    openPopup(popupWindowAddPhoto);
     popupPhotoName.value = '';
     popupPhotoLink.value = '';
+    openPopup(popupWindowAddPhoto);
 }
 photoAddElement.addEventListener('click', addPhotoHandler);
 
@@ -189,10 +215,10 @@ function addFormPhotoSubmitHandler(evt) {
     evt.preventDefault();
     const newPhotoName = popupPhotoName;
     const newPhotoLink = popupPhotoLink;
-    const newCard =  {
-            name: newPhotoName.value,
-            link: newPhotoLink.value
-        };
+    const newCard = {
+        name: newPhotoName.value,
+        link: newPhotoLink.value
+    };
     renderCard(newCard);
     closeAddHandler();
 }
@@ -216,3 +242,106 @@ function closePhotoHandler() {
     closePopup(popupWindowPhoto);
 }
 btnClosePhotoElement.addEventListener('click', closePhotoHandler);
+
+//закрытие попапа по нажатию клавиши Esc
+function ClosePopUpByEscape(evt) {
+    evt.preventDefault();
+    if (evt.key === 'Escape') {
+        CloseOpenedPopup();
+    }
+}
+
+//закрытие попапа по клику на оверлей
+function ClosePopUpByOverlayClick() {
+    // const pop = document.querySelector('.popup__container');
+    overlayList.forEach((element) => {
+        //console.log(element);
+        // element.addEventListener('click', CloseOpenedPopup);
+
+        element.addEventListener('click', function (e) {
+            if (e.target === element)
+                CloseOpenedPopup();
+        });
+    });
+}
+
+//закрытие открытого попапа
+function CloseOpenedPopup() {
+    const openedPopup = document.querySelector('.popup_opened');
+    if (openedPopup !== null) { closePopup(openedPopup) };
+}
+
+//обход массива на валидность всех элементов
+//если хотя бы один элемент массива не валиден, функция возвращает true
+function isInputInvalid(inputList) {
+    return inputList.some((element) => {
+        //console.log(element.value);
+        return !element.validity.valid;
+    })
+}
+
+//изменение состояния кнопки
+//если есть хотя бы один невалидный инпут в форме - кнопка неактивна
+function toggleButtonState(inputList, button) {
+    if (isInputInvalid(inputList)) {
+        button.classList.add(form.buttonSubmitFormDisabledName);
+        button.setAttribute('disabled', 'disabled');
+        //console.log('есть невалидный инпут, кнопка деактивирована');
+    }
+    else {
+        button.classList.remove(form.buttonSubmitFormDisabledName);
+        button.removeAttribute('disabled');
+        //console.log('все инпуты корректные, кнопка активирована');
+
+    }
+}
+
+//установка слушателя для всех форм (перебор форм и вызор вспомогательной функции)
+function enableValidation(object) {
+    //console.log(formList);
+    formList.forEach((element) => {
+        //console.log(element);
+        setEventListeners(element, object);
+    });
+}
+
+//установка слушателя на все инпуты формы (вспомогательная функция)
+function setEventListeners(form, object) {
+    //работа c конкретной формой
+    //console.log(form);
+    const inputList = Array.from(form.querySelectorAll(object.formInput));
+    //console.log(inputList);
+    const button = form.querySelector(object.buttonSubmitForm);
+    //console.log(button);
+    toggleButtonState(inputList, button);
+
+    inputList.forEach((element) => {
+        element.addEventListener('input', function () {
+            toggleButtonState(inputList, button);
+            showValidationMessage(element);
+        });
+    });
+
+}
+
+//работа с текстом ошибок валидации - отображение и скрытие
+function showValidationMessage(formInput) {
+    const formError = document.querySelector(`.popup__span-error_type_${formInput.id}`);
+    if (formInput.isInputInvalid) {
+        //console.log(formInput.validationMessage);
+        //console.log(formError);
+        formError.textContent = formInput.validationMessage;
+    }
+    else {
+        //console.log(formInput.validationMessage);
+        //const formError = document.querySelector(`.popup__span-error_type_${formInput.id}`);
+        //console.log(formError);
+        formError.textContent = formInput.validationMessage;
+    }
+}
+
+
+
+
+
+
