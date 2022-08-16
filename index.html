@@ -26,15 +26,21 @@
     <section class="elements">
     </section>
   </main>
-  <div class="popup popup_type_edit-profile">
+  <div class="popup popup_type_edit-profile" id="popup-edit-profile">
     <div class="popup__container">
       <button class="popup__close-icon" type="button" id="button_close-edit-form"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form" action="#" method="post" name="submitform" id="submit_edit-form">
-        <input type="text" class="popup__profile-field popup__profile-field_type_name" value=""
-          id="popup__profile-name" />
+      <form class="popup__form" action="#" method="post" name="submitform" id="submit_edit-form" novalidate>
+        <fieldset class="popup__fieldset">
+        <input type="text" class="popup__profile-field popup__profile-field_type_name" value="" id="profile-name"
+          minlength="2" maxlength="40" required />
+        <!--PW6-->
+        <span class="popup__span-error popup__span-error_type_profile-name"></span>
+        <!-- <span class="popup__span-error">gggggggggggggggg</span> -->
         <input type="text" class="popup__profile-field popup__profile-field_type_job" value=""
-          id="popup__profile-description" />
+          id="profile-description" minlength="2" maxlength="200" required />
+          <span class="popup__span-error popup__span-error_type_profile-description"></span>
+        </fieldset>
         <button class="popup__submit-button" type="submit" id="submit">Сохранить</button>
       </form>
     </div>
@@ -43,20 +49,24 @@
     <div class="popup__container">
       <button class="popup__close-icon" type="button" id="button_close-add-form"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__form" action="#" method="post" name="submitform" id="submit_add-form">
-        <input type="text" class="popup__profile-field popup__profile-field_type_photo-name" value=""
-          id="popup__photo-name" placeholder="Название" />
-        <input type="text" class="popup__profile-field popup__profile-field_type_photo-link" value=""
-          id="popup__photo-link" placeholder="Ссылка на картинку" />
+      <form class="popup__form" action="#" method="post" name="submitform" id="submit_add-form" novalidate>
+        <fieldset class="popup__fieldset">
+          <input type="text" class="popup__profile-field popup__profile-field_type_photo-name" value=""
+            id="photo-name" placeholder="Название" minlength="2" maxlength="30" required />
+            <span class="popup__span-error popup__span-error_type_photo-name"></span>
+          <input type="url" class="popup__profile-field popup__profile-field_type_photo-link" value=""
+            id="photo-link" placeholder="Ссылка на картинку" required />
+            <span class="popup__span-error popup__span-error_type_photo-link"></span>
+        </fieldset>
         <button class="popup__submit-button" type="submit" id="submit-addform">Создать</button>
       </form>
     </div>
   </div>
   <div class="popup popup_type_photo">
     <div class="popup__container popup__container_photo">
-        <button class="popup__close-icon" type="button" id="button_close-photo"></button>
-        <img class="popup__photo" src="#" alt="фото в попапе" />
-        <h3 class="popup__photo-title"></h3>
+      <button class="popup__close-icon" type="button" id="button_close-photo"></button>
+      <img class="popup__photo" src="#" alt="фото в попапе" />
+      <h3 class="popup__photo-title"></h3>
     </div>
   </div>
   <footer class="footer">
