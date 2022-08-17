@@ -1,84 +1,3 @@
-//массив карточек из задания для отображения на странице
-const initialCards = [
-    {
-        name: 'Карелия',
-        link: './images/Карелия.jpg'
-    },
-    {
-        name: 'Гора Эльбрус',
-        link: './images/Эльбрус.jpg'
-    },
-    {
-        name: 'Домбай',
-        link: './images/Домбай.jpg'
-    },
-    {
-        name: 'Озеро Байкал',
-        link: './images/Байкал.jpg'
-    },
-    {
-        name: 'Алтай',
-        link: './images/Алтай.jpg'
-    },
-    {
-        name: 'Карачаево-Черкесия',
-        link: './images/Карачаевск.jpg'
-    }
-]
-
-
-//отдельные селекторы, чтобы напрямую не использовать имя класса или id в скрипте
-const selectors =
-{
-    profileNameOrigin: '.profile-info__name',
-    profileJobOrigin: '.profile-info__description',
-    profileNameInput: '.popup__profile-field_type_name',
-    profileJobInput: '.popup__profile-field_type_job',
-
-    cards: '.elements',
-    card: '.element',
-    cardTemplate: '#cards-item-template',
-    cardTitle: '.element__title',
-    cardPhoto: '.element__photo-place',
-
-    buttonEditID: 'button_edit-profile',
-    buttonEditSubmitID: 'submit_edit-form',
-    buttonAddPlaceID: 'button_add-place',
-    buttonAddPlaceSubmitID: 'submit_add-form',
-    buttonCloseEditFormID: 'button_close-edit-form',
-    buttonCloseAddFormID: 'button_close-add-form',
-    buttonClosePhotoID: 'button_close-photo',
-    buttonLike: '.element__like',
-    buttonLikeChecked: '.element__like_checked',
-    buttonLikeCheckedName: 'element__like_checked',
-    buttonDelete: '.element__delete',
-
-    overlay: '.popup',
-    // overlayEditProfile: '.popup_type_edit-profile',
-    // overlayAddPhoto: '.popup_type_add-photo',
-    // overlayPhoto: '.popup_type_photo',
-
-    popupWindow: '.popup__container',
-    popupOpenedName: 'popup_opened',
-
-    profileEditPopup: '.popup_type_edit-profile',
-    photoAddPopup: '.popup_type_add-photo',
-    photoPopup: '.popup_type_photo',
-
-    popupPhoto: '.popup__photo',
-    popupPhotoTitle: '.popup__photo-title',
-    popupPhotoName: '.popup__profile-field_type_photo-name',
-    popupPhotoLink: '.popup__profile-field_type_photo-link'
-}
-
-const form =
-{
-    formElement: '.popup__form',
-    formInput: '.popup__profile-field',
-    buttonSubmitForm: '.popup__submit-button',
-    buttonSubmitFormDisabledName: 'popup__submit-button_disabled'
-}
-
 //формы
 const formList = Array.from(document.querySelectorAll(form.formElement));
 
@@ -130,25 +49,33 @@ function createCard(object) {
 
     //открытие картинки в полном размере
     image.addEventListener('click', function () {
-        openPopup(popupWindowPhoto);
         photo.src = object.link;
         photo.alt = object.name;
         title.textContent = object.name;
-
+        openPopup(popupWindowPhoto);
     })
 
     //удаление фото
     const btnDel = cardElement.querySelector(selectors.buttonDelete);
-    btnDel.addEventListener('click', function () {
+    // btnDel.addEventListener('click', function () {
+    //     cardElement.remove();
+    // }
+    // );
+    function removeCard () {
         cardElement.remove();
     }
-    );
+    btnDel.addEventListener('click', removeCard);
 
     //лайк фото
     const btnLike = cardElement.querySelector(selectors.buttonLike);
-    btnLike.addEventListener('click', function () {
+    // btnLike.addEventListener('click', function () {
+    //     btnLike.classList.add(selectors.buttonLikeCheckedName);
+    // });
+    function checkLike() {
         btnLike.classList.add(selectors.buttonLikeCheckedName);
-    });
+    }
+    btnLike.addEventListener('click', checkLike);
+
 
     //добавление новой карточки в начало массива
     // cardsContainer.prepend(cardElement);
@@ -176,9 +103,12 @@ createInitialCard();
 function openPopup(popup) {
     popup.classList.add(selectors.popupOpenedName);
     //console.log(form);
-    enableValidation(form);
-    document.addEventListener('keyup', ClosePopUpByEscape);
-    ClosePopUpByOverlayClick();
+    //document.addEventListener('keyup', ClosePopUpByEscape);
+    // closePopUpByOverlayClick();
+
+    // const inputList = Array.from(popup.querySelectorAll(form.formInput));
+    // const button = popup.querySelector(form.buttonSubmitForm);
+    // toggleButtonState(inputList, button);
 }
 
 function closePopup(popup) {
@@ -190,6 +120,10 @@ function editProfileHandler() {
     nameInput.value = nameOrigin.textContent;
     jobInput.value = descriptionOrigin.textContent;
     openPopup(popupWindowEditProfile);
+
+    const inputList = Array.from(popupWindowEditProfile.querySelectorAll(form.formInput));
+    const button = popupWindowEditProfile.querySelector(form.buttonSubmitForm);
+    toggleButtonState(inputList, button);
 }
 profileEditElement.addEventListener('click', editProfileHandler);
 
@@ -207,6 +141,10 @@ function addPhotoHandler() {
     popupPhotoName.value = '';
     popupPhotoLink.value = '';
     openPopup(popupWindowAddPhoto);
+
+    const inputList = Array.from(popupWindowAddPhoto.querySelectorAll(form.formInput));
+    const button = popupWindowAddPhoto.querySelector(form.buttonSubmitForm);
+    toggleButtonState(inputList, button);
 }
 photoAddElement.addEventListener('click', addPhotoHandler);
 
@@ -228,18 +166,21 @@ formPhotoAddElement.addEventListener('submit', addFormPhotoSubmitHandler);
 //кнопка закрытия формы редактирования профиля
 function closeEditHandler() {
     closePopup(popupWindowEditProfile);
+   // closeOpenedPopup();
 }
 btnCloseEditElement.addEventListener('click', closeEditHandler);
 
 //кнопка закрытия формы добавления фото
 function closeAddHandler() {
     closePopup(popupWindowAddPhoto);
+    //closeOpenedPopup();
 }
 btnCloseAddElement.addEventListener('click', closeAddHandler);
 
 //кнопка закрытия попапа с фото
 function closePhotoHandler() {
     closePopup(popupWindowPhoto);
+    //closeOpenedPopup();
 }
 btnClosePhotoElement.addEventListener('click', closePhotoHandler);
 
@@ -247,101 +188,48 @@ btnClosePhotoElement.addEventListener('click', closePhotoHandler);
 function ClosePopUpByEscape(evt) {
     evt.preventDefault();
     if (evt.key === 'Escape') {
-        CloseOpenedPopup();
+        closeOpenedPopup();
     }
 }
+document.addEventListener('keyup', ClosePopUpByEscape);
 
-//закрытие попапа по клику на оверлей
-function ClosePopUpByOverlayClick() {
-    // const pop = document.querySelector('.popup__container');
+
+
+// //закрытие попапа по клику на оверлей
+// function closePopUpByOverlayClick() {
+//     // const pop = document.querySelector('.popup__container');
+//     overlayList.forEach((element) => {
+//         //console.log(element);
+//         // element.addEventListener('click', CloseOpenedPopup);
+
+//         element.addEventListener('click', function (e) {
+//             if (e.target === element)
+//                 closeOpenedPopup();
+//         });
+//     });
+// }
+function closePopUpByOverlayClick(evt) {
+    const pop = document.querySelector('.popup__container');
+    //evt.preventDefault();
     overlayList.forEach((element) => {
-        //console.log(element);
-        // element.addEventListener('click', CloseOpenedPopup);
-
-        element.addEventListener('click', function (e) {
-            if (e.target === element)
-                CloseOpenedPopup();
-        });
+ 
+            if (evt.target === element) {
+                closeOpenedPopup();
+            }
     });
 }
+document.addEventListener('click', closePopUpByOverlayClick);
+
 
 //закрытие открытого попапа
-function CloseOpenedPopup() {
+function closeOpenedPopup() {
     const openedPopup = document.querySelector('.popup_opened');
-    if (openedPopup !== null) { closePopup(openedPopup) };
-}
-
-//обход массива на валидность всех элементов
-//если хотя бы один элемент массива не валиден, функция возвращает true
-function isInputInvalid(inputList) {
-    return inputList.some((element) => {
-        //console.log(element.value);
-        return !element.validity.valid;
-    })
-}
-
-//изменение состояния кнопки
-//если есть хотя бы один невалидный инпут в форме - кнопка неактивна
-function toggleButtonState(inputList, button) {
-    if (isInputInvalid(inputList)) {
-        button.classList.add(form.buttonSubmitFormDisabledName);
-        button.setAttribute('disabled', 'disabled');
-        //console.log('есть невалидный инпут, кнопка деактивирована');
+    if (openedPopup !== null) {
+        closePopup(openedPopup);
+        document.removeEventListener('keydown', ClosePopUpByEscape);
+        //document.removeEventListener('click', closePopUpByOverlayClick);
     }
-    else {
-        button.classList.remove(form.buttonSubmitFormDisabledName);
-        button.removeAttribute('disabled');
-        //console.log('все инпуты корректные, кнопка активирована');
 
-    }
-}
-
-//установка слушателя для всех форм (перебор форм и вызор вспомогательной функции)
-function enableValidation(object) {
-    //console.log(formList);
-    formList.forEach((element) => {
-        //console.log(element);
-        setEventListeners(element, object);
-    });
-}
-
-//установка слушателя на все инпуты формы (вспомогательная функция)
-function setEventListeners(form, object) {
-    //работа c конкретной формой
-    //console.log(form);
-    const inputList = Array.from(form.querySelectorAll(object.formInput));
-    //console.log(inputList);
-    const button = form.querySelector(object.buttonSubmitForm);
-    //console.log(button);
-    toggleButtonState(inputList, button);
-
-    inputList.forEach((element) => {
-        element.addEventListener('input', function () {
-            toggleButtonState(inputList, button);
-            showValidationMessage(element);
-        });
-    });
 
 }
-
-//работа с текстом ошибок валидации - отображение и скрытие
-function showValidationMessage(formInput) {
-    const formError = document.querySelector(`.popup__span-error_type_${formInput.id}`);
-    if (formInput.isInputInvalid) {
-        //console.log(formInput.validationMessage);
-        //console.log(formError);
-        formError.textContent = formInput.validationMessage;
-    }
-    else {
-        //console.log(formInput.validationMessage);
-        //const formError = document.querySelector(`.popup__span-error_type_${formInput.id}`);
-        //console.log(formError);
-        formError.textContent = formInput.validationMessage;
-    }
-}
-
-
-
-
-
 
