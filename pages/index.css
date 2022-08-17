@@ -4,6 +4,8 @@
 @import url(../blocks/root/root.css);
 /*SCRIPTS*/
 @import url(../scripts/index.js);
+@import url(../scripts/data.js);
+@import url(../scripts/validate.js);
 /*HEADER*/
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
