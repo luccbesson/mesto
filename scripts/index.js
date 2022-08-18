@@ -117,6 +117,7 @@ function openPopup(popup) {
 function closePopup(popup) {
     popup.classList.remove(selectors.popupOpenedName);
     document.removeEventListener('keydown', ClosePopUpByEscape);
+    //document.removeEventListener('click', closePopUpByOverlayClick);
 }
 
 //кнопка открытия формы редактирования профиля
@@ -175,7 +176,7 @@ formPhotoAddElement.addEventListener('submit', addFormPhotoSubmitHandler);
 //кнопка закрытия формы редактирования профиля
 function closeEditHandler() {
     closePopup(popupWindowEditProfile);
-    document.removeEventListener('keydown', ClosePopUpByEscape);
+    //document.removeEventListener('keydown', ClosePopUpByEscape);
     // closeOpenedPopup();
 }
 btnCloseEditElement.addEventListener('click', closeEditHandler);
@@ -183,7 +184,7 @@ btnCloseEditElement.addEventListener('click', closeEditHandler);
 //кнопка закрытия формы добавления фото
 function closeAddHandler() {
     closePopup(popupWindowAddPhoto);
-    document.removeEventListener('keydown', ClosePopUpByEscape);
+    //document.removeEventListener('keydown', ClosePopUpByEscape);
     //closeOpenedPopup();
 }
 btnCloseAddElement.addEventListener('click', closeAddHandler);
@@ -191,7 +192,7 @@ btnCloseAddElement.addEventListener('click', closeAddHandler);
 //кнопка закрытия попапа с фото
 function closePhotoHandler() {
     closePopup(popupWindowPhoto);
-    document.removeEventListener('keydown', ClosePopUpByEscape);
+    //document.removeEventListener('keydown', ClosePopUpByEscape);
     //closeOpenedPopup();
 }
 btnClosePhotoElement.addEventListener('click', closePhotoHandler);
@@ -238,8 +239,7 @@ function closeOpenedPopup() {
     const openedPopup = document.querySelector('.popup_opened');
     if (openedPopup !== null) {
         closePopup(openedPopup);
-        document.removeEventListener('keydown', ClosePopUpByEscape);
-        //document.removeEventListener('click', closePopUpByOverlayClick);
+        //document.removeEventListener('keydown', ClosePopUpByEscape);
     }
 
 
