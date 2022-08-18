@@ -41,10 +41,13 @@ const selectors =
     cardTitle: '.element__title',
     cardPhoto: '.element__photo-place',
 
-    buttonEditID: 'button_edit-profile',
-    buttonEditSubmitID: 'submit_edit-form',
+    formEditProfileID: 'submit_edit-form',
+    formAddPlaceSubmitID: 'submit_add-form',
+
+    buttonEditProfileID: 'button_edit-profile',
     buttonAddPlaceID: 'button_add-place',
-    buttonAddPlaceSubmitID: 'submit_add-form',
+    butttonEditProfileSubmitID: 'submit_edit-profile-form',
+    buttonAddPlaceSubmitID: 'submit_add-place-form',    
     buttonCloseEditFormID: 'button_close-edit-form',
     buttonCloseAddFormID: 'button_close-add-form',
     buttonClosePhotoID: 'button_close-photo',

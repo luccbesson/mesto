@@ -11,16 +11,21 @@ function isInputInvalid(inputList) {
 // если есть хотя бы один невалидный инпут в форме - кнопка неактивна
 function toggleButtonState(inputList, button) {
     if (isInputInvalid(inputList)) {
-        button.classList.add(form.buttonSubmitFormDisabledName);
-        button.setAttribute('disabled', 'disabled');
+        //button.classList.add(form.buttonSubmitFormDisabledName);
+        //button.setAttribute('disabled', 'disabled');
+        disableButton (button);
         //console.log('есть невалидный инпут, кнопка деактивирована');
     }
     else {
         button.classList.remove(form.buttonSubmitFormDisabledName);
         button.removeAttribute('disabled');
         //console.log('все инпуты корректные, кнопка активирована');
-
     }
+}
+
+function disableButton(button) {
+    button.classList.add(form.buttonSubmitFormDisabledName);
+    button.setAttribute('disabled', 'disabled');
 }
 
 //установка слушателя для всех форм (перебор форм и вызор вспомогательной функции)

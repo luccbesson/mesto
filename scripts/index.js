@@ -1,5 +1,7 @@
 //формы
 const formList = Array.from(document.querySelectorAll(form.formElement));
+const formProfileEditElement = document.getElementById(selectors.formEditProfileID);
+const formPhotoAddElement = document.getElementById(selectors.formAddPlaceSubmitID);
 
 //попапы
 const popupWindowPhoto = document.querySelector(selectors.photoPopup);
@@ -14,13 +16,13 @@ const overlayList = Array.from(document.querySelectorAll(selectors.overlay));
 const popupWindow = document.querySelector(selectors.popupWindow);
 
 //кнопки
-const profileEditElement = document.getElementById(selectors.buttonEditID);
-const formProfileEditElement = document.getElementById(selectors.buttonEditSubmitID);
-const photoAddElement = document.getElementById(selectors.buttonAddPlaceID);
-const formPhotoAddElement = document.getElementById(selectors.buttonAddPlaceSubmitID);
+const btnEditProfileElement = document.getElementById(selectors.buttonEditProfileID);
+const btnAddPlaceElement = document.getElementById(selectors.buttonAddPlaceID);
 const btnCloseEditElement = document.getElementById(selectors.buttonCloseEditFormID);
 const btnCloseAddElement = document.getElementById(selectors.buttonCloseAddFormID);
 const btnClosePhotoElement = document.getElementById(selectors.buttonClosePhotoID);
+const btnEditProfileSubmit = document.getElementById(selectors.butttonEditProfileSubmitID);
+const btnAddPlaceSubmit = document.getElementById(selectors.buttonAddPlaceSubmitID);
 
 //создание DOM объектов
 const cardsContainer = document.querySelector(selectors.cards);
@@ -61,7 +63,7 @@ function createCard(object) {
     //     cardElement.remove();
     // }
     // );
-    function removeCard () {
+    function removeCard() {
         cardElement.remove();
     }
     btnDel.addEventListener('click', removeCard);
@@ -102,6 +104,7 @@ createInitialCard();
 //открыть попап
 function openPopup(popup) {
     popup.classList.add(selectors.popupOpenedName);
+    document.addEventListener('keyup', ClosePopUpByEscape);
     //console.log(form);
     //document.addEventListener('keyup', ClosePopUpByEscape);
     // closePopUpByOverlayClick();
@@ -113,6 +116,7 @@ function openPopup(popup) {
 
 function closePopup(popup) {
     popup.classList.remove(selectors.popupOpenedName);
+    document.removeEventListener('keydown', ClosePopUpByEscape);
 }
 
 //кнопка открытия формы редактирования профиля
@@ -122,10 +126,13 @@ function editProfileHandler() {
     openPopup(popupWindowEditProfile);
 
     const inputList = Array.from(popupWindowEditProfile.querySelectorAll(form.formInput));
-    const button = popupWindowEditProfile.querySelector(form.buttonSubmitForm);
-    toggleButtonState(inputList, button);
+    //const button = popupWindowEditProfile.querySelector(form.buttonSubmitForm);
+    //const button = document.querySelector(form.buttonSubmitForm);
+    //console.log(button);
+    //toggleButtonState(inputList, button);
+    disableButton(btnEditProfileSubmit);
 }
-profileEditElement.addEventListener('click', editProfileHandler);
+btnEditProfileElement.addEventListener('click', editProfileHandler);
 
 //кнопка сохранения данных формы редактирования профиля
 function editProfileFormSubmitHandler(evt) {
@@ -142,11 +149,13 @@ function addPhotoHandler() {
     popupPhotoLink.value = '';
     openPopup(popupWindowAddPhoto);
 
-    const inputList = Array.from(popupWindowAddPhoto.querySelectorAll(form.formInput));
-    const button = popupWindowAddPhoto.querySelector(form.buttonSubmitForm);
-    toggleButtonState(inputList, button);
+    //const inputList = Array.from(popupWindowAddPhoto.querySelectorAll(form.formInput));
+    // const button = popupWindowAddPhoto.querySelector(form.buttonSubmitForm);
+    // toggleButtonState(inputList, button);
+    //console.log(btnAddPlaceSubmit);
+    disableButton(btnAddPlaceSubmit);
 }
-photoAddElement.addEventListener('click', addPhotoHandler);
+btnAddPlaceElement.addEventListener('click', addPhotoHandler);
 
 //кнопка сохранения формы добавления фото в ленту
 function addFormPhotoSubmitHandler(evt) {
@@ -166,13 +175,15 @@ formPhotoAddElement.addEventListener('submit', addFormPhotoSubmitHandler);
 //кнопка закрытия формы редактирования профиля
 function closeEditHandler() {
     closePopup(popupWindowEditProfile);
-   // closeOpenedPopup();
+    document.removeEventListener('keydown', ClosePopUpByEscape);
+    // closeOpenedPopup();
 }
 btnCloseEditElement.addEventListener('click', closeEditHandler);
 
 //кнопка закрытия формы добавления фото
 function closeAddHandler() {
     closePopup(popupWindowAddPhoto);
+    document.removeEventListener('keydown', ClosePopUpByEscape);
     //closeOpenedPopup();
 }
 btnCloseAddElement.addEventListener('click', closeAddHandler);
@@ -180,6 +191,7 @@ btnCloseAddElement.addEventListener('click', closeAddHandler);
 //кнопка закрытия попапа с фото
 function closePhotoHandler() {
     closePopup(popupWindowPhoto);
+    document.removeEventListener('keydown', ClosePopUpByEscape);
     //closeOpenedPopup();
 }
 btnClosePhotoElement.addEventListener('click', closePhotoHandler);
@@ -191,7 +203,7 @@ function ClosePopUpByEscape(evt) {
         closeOpenedPopup();
     }
 }
-document.addEventListener('keyup', ClosePopUpByEscape);
+// document.addEventListener('keyup', ClosePopUpByEscape);
 
 
 
@@ -212,10 +224,10 @@ function closePopUpByOverlayClick(evt) {
     const pop = document.querySelector('.popup__container');
     //evt.preventDefault();
     overlayList.forEach((element) => {
- 
-            if (evt.target === element) {
-                closeOpenedPopup();
-            }
+
+        if (evt.target === element) {
+            closeOpenedPopup();
+        }
     });
 }
 document.addEventListener('click', closePopUpByOverlayClick);
