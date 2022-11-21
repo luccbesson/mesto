@@ -47,7 +47,7 @@ const selectors =
     buttonEditProfileID: 'button_edit-profile',
     buttonAddPlaceID: 'button_add-place',
     butttonEditProfileSubmitID: 'submit_edit-profile-form',
-    buttonAddPlaceSubmitID: 'submit_add-place-form',    
+    buttonAddPlaceSubmitID: 'submit_add-place-form',
     buttonCloseEditFormID: 'button_close-edit-form',
     buttonCloseAddFormID: 'button_close-add-form',
     buttonClosePhotoID: 'button_close-photo',
@@ -57,9 +57,6 @@ const selectors =
     buttonDelete: '.element__delete',
 
     overlay: '.popup',
-    // overlayEditProfile: '.popup_type_edit-profile',
-    // overlayAddPhoto: '.popup_type_add-photo',
-    // overlayPhoto: '.popup_type_photo',
 
     popupWindow: '.popup__container',
     popupOpenedName: 'popup_opened',
@@ -74,11 +71,13 @@ const selectors =
     popupPhotoLink: '.popup__profile-field_type_photo-link'
 }
 
-const form =
+const formConfig =
 {
     formElement: '.popup__form',
     formInput: '.popup__profile-field',
     buttonSubmitForm: '.popup__submit-button',
     buttonSubmitFormDisabledName: 'popup__submit-button_disabled'
 }
+
+export { initialCards, selectors, formConfig };
 

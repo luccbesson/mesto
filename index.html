@@ -32,11 +32,11 @@
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__form" action="#" method="post" name="submitform" id="submit_edit-form" novalidate>
         <fieldset class="popup__fieldset">
-        <input type="text" class="popup__profile-field popup__profile-field_type_name" value="" id="profile-name"
-          minlength="2" maxlength="40" required />
-        <span class="popup__span-error popup__span-error_type_profile-name"></span>
-        <input type="text" class="popup__profile-field popup__profile-field_type_job" value=""
-          id="profile-description" minlength="2" maxlength="200" required />
+          <input type="text" class="popup__profile-field popup__profile-field_type_name" value="" id="profile-name"
+            minlength="2" maxlength="40" required />
+          <span class="popup__span-error popup__span-error_type_profile-name"></span>
+          <input type="text" class="popup__profile-field popup__profile-field_type_job" value=""
+            id="profile-description" minlength="2" maxlength="200" required />
           <span class="popup__span-error popup__span-error_type_profile-description"></span>
         </fieldset>
         <button class="popup__submit-button" type="submit" id="submit_edit-profile-form">Сохранить</button>
@@ -49,12 +49,12 @@
       <h2 class="popup__title">Новое место</h2>
       <form class="popup__form" action="#" method="post" name="submitform" id="submit_add-form" novalidate>
         <fieldset class="popup__fieldset">
-          <input type="text" class="popup__profile-field popup__profile-field_type_photo-name" value=""
-            id="photo-name" placeholder="Название" minlength="2" maxlength="30" required />
-            <span class="popup__span-error popup__span-error_type_photo-name"></span>
-          <input type="url" class="popup__profile-field popup__profile-field_type_photo-link" value=""
-            id="photo-link" placeholder="Ссылка на картинку" required />
-            <span class="popup__span-error popup__span-error_type_photo-link"></span>
+          <input type="text" class="popup__profile-field popup__profile-field_type_photo-name" value="" id="photo-name"
+            placeholder="Название" minlength="2" maxlength="30" required />
+          <span class="popup__span-error popup__span-error_type_photo-name"></span>
+          <input type="url" class="popup__profile-field popup__profile-field_type_photo-link" value="" id="photo-link"
+            placeholder="Ссылка на картинку" required />
+          <span class="popup__span-error popup__span-error_type_photo-link"></span>
         </fieldset>
         <button class="popup__submit-button" type="submit" id="submit_add-place-form">Создать</button>
       </form>
@@ -70,10 +70,14 @@
   <footer class="footer">
     <p class="footer__copyright">© 2022. Lera S.</p>
   </footer>
-  <script src="./scripts/index.js" defer></script>
+  <!--<script src="./scripts/index.js" defer></script>
   <script src="./scripts/data.js"></script>
-  <script src="./scripts/validate.js" defer></script>
-  <template id="cards-item-template">
+  <script src="./scripts/validate.js" defer></script>-->
+  <script type="module" src="./scripts/card.js"></script>
+  <script type="module" src="./scripts/formValidator.js"></script>
+  <script type="module" src="./scripts/index.js"></script>
+  <script type="module" src="./scripts/data.js"></script>
+  <template class="cards-item-template" id="cards-item-template">
     <div class="element">
       <img class="element__photo-place" src="#" alt="фото карточки">
       <button class="element__delete" type="button"></button>
