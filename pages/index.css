@@ -5,7 +5,8 @@
 /*SCRIPTS*/
 @import url(../scripts/index.js);
 @import url(../scripts/data.js);
-@import url(../scripts/validate.js);
+@import url(../scripts/card.js);
+@import url(../scripts/formValidator.js);
 /*HEADER*/
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
